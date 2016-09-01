@@ -10,18 +10,27 @@ namespace PorductsApp.Controllers
 {
     public class ProductsController : ApiController
     {
-        Product[] products = new Product[]
+        static List<Product> products = new List<Product>
         {
             new Product { Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1 },
             new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
             new Product { Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M }
         };
 
+        /// <summary>
+        /// 取得產品列表
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Product> GetAllProducts()
         {
             return products;
         }
 
+        /// <summary>
+        /// 取得產品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult GetProduct(int id)
         {
             var product = products.FirstOrDefault((p) => p.Id == id);
@@ -30,6 +39,17 @@ namespace PorductsApp.Controllers
                 return NotFound();
             }
             return Ok(product);
+        }
+
+        /// <summary>
+        /// 新增產品
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        public IHttpActionResult PostProduct(Product product)
+        {
+            products.Add(product);
+            return Created(Url.Link("DefaultApi", new { id = product.Id }), product);
         }
     }
 }

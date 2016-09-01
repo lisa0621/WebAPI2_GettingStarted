@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PorductsApp</name>
+    </assembly>
+    <members>
+        <member name="M:PorductsApp.Controllers.ProductsController.GetAllProducts">
+            <summary>
+            取得產品列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PorductsApp.Controllers.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            取得產品
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PorductsApp.Controllers.ProductsController.PostProduct(PorductsApp.Models.Product)">
+            <summary>
+            新增產品
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
